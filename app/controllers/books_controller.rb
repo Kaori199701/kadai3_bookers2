@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    @books =Book.all
   end
 
   def show
@@ -25,6 +26,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:book_name, :image, :opinion)
   end
-
 
 end

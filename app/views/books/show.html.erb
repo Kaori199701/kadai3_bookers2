@@ -1,2 +1,8 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<% @books.each do |post_image| %>
+<div>
+  <%= image_tag post_image.get_image %>
+  <p>本の名：<%= post_image.book_name %></p>
+  <p>紹介文：<%= post_image.opinion %></p>
+  <p>ユーザーネーム：<%= post_image.user.name %></p>
+</div>
+<% end %>

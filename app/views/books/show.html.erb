@@ -1,4 +1,8 @@
 <div>
+  <%= flash[:notice] %>
+</div>
+
+<div>
   <%= image_tag @book.get_image %>
   <p>本の名：<%= @book.book_name %></p>
   <p>紹介文：<%= @book.opinion %></p>

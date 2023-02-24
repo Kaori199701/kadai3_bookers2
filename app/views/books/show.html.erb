@@ -3,4 +3,6 @@
   <p>本の名：<%= @book.book_name %></p>
   <p>紹介文：<%= @book.opinion %></p>
   <p>ユーザーネーム：<%= @book.user.name %></p>
+
+  <%= link_to "Edit", edit_book_path(@book.id) %>
 </div>

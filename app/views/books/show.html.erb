@@ -1,8 +1,6 @@
-<% @books.each do |post_image| %>
 <div>
-  <%= image_tag post_image.get_image %>
-  <p>本の名：<%= post_image.book_name %></p>
-  <p>紹介文：<%= post_image.opinion %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
+  <%= image_tag @book.get_image %>
+  <p>本の名：<%= @book.book_name %></p>
+  <p>紹介文：<%= @book.opinion %></p>
+  <p>ユーザーネーム：<%= @book.user.name %></p>
 </div>
-<% end %>

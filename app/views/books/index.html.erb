@@ -1,7 +1,9 @@
-<% @books.each do |post_image| %>
+<% @books.each do |book| %>
 <div>
-  <%= image_tag post_image.get_image %>
-  <p>本の名：<%= post_image.book_name %></p>
-  <p>紹介文：<%= post_image.opinion %></p>
+  <%= link_to book_path(book.id) do %>
+    <%= image_tag book.get_image %>
+  <% end %>
+  <p>本の名：<%= book.book_name %></p>
+  <p>紹介文：<%= book.opinion %></p>
 </div>
 <% end %>

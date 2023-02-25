@@ -4,8 +4,8 @@
 
 <div>
   <%= image_tag @book.get_image %>
-  <p>本の名：<%= @book.book_name %></p>
-  <p>紹介文：<%= @book.opinion %></p>
+  <p>本の名：<%= @book.title %></p>
+  <p>紹介文：<%= @book.body %></p>
   <p>ユーザーネーム：<%= @book.user.name %></p>
 
   <%= link_to "Edit", edit_book_path(@book.id) %>

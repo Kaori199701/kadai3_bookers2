@@ -3,7 +3,7 @@
   <%= link_to book_path(book.id) do %>
     <%= image_tag book.get_image %>
   <% end %>
-  <p>本の名：<%= book.book_name %></p>
-  <p>紹介文：<%= book.opinion %></p>
+  <p>本の名：<%= book.title %></p>
+  <p>紹介文：<%= book.body %></p>
 </div>
 <% end %>

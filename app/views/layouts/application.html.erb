@@ -12,14 +12,15 @@
 
   <body>
     <header>
+      <%= link_to 'Bookers', '/homes/top'%>
     <% if user_signed_in? %>
       <%= link_to 'Home', books_path %>
-      <%= link_to 'マイページ', user_path(current_user.id) %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      <%= link_to 'Books', books_path %>
       <%= link_to "Users", users_path %>
+      <%= link_to 'Books', books_path %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <a href="/homes/about">About</a>
+      <%= link_to 'Home', '/homes/top'%>
+      <%= link_to 'About', '/homes/about'%>
       <%= link_to "Sign up", new_user_registration_path %>
       <%= link_to "Log in", new_user_session_path %>
     <% end %>

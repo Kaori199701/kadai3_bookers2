@@ -1,4 +1,9 @@
-<!-- ユーザーの詳細 -->
+<!-- ユーザーの詳細? -->
+<h1>User info</h1>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= @user.name %>
+  <%= @user.introduction %>
+
 
 <h1>New book</h1>
   <% if @book.errors.any? %>

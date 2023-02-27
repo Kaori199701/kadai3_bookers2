@@ -4,6 +4,10 @@
   <%= @user.name %>
   <%= @user.introduction %>
 
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+
 <!-- 新規作成 -->
 <%= render 'books/book', book: @book %>
 

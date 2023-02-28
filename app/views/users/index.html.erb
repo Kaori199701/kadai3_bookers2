@@ -1,7 +1,13 @@
+<!--ユーザーインフォ-->
+
+<!--新規投稿-->
+
 <h1>User</h1>
 
 <% @users.each do |user| %>
     <li>
-      <%= link_to user.name, user %>
+      <%= image_tag user.get_profile_image(100,100) %>
+      <%= user.name %>
+      <%= link_to 'show', user %>
     </li>
 <% end %>

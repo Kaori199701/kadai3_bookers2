@@ -22,6 +22,6 @@
     <%= image_tag book.get_image %>
   <% end %>
   <p><%= link_to book.title, book_path(book.id) %></p>
-  <p>紹介文：<%= book.body %></p>
+  <p><%= book.body %></p>
 </div>
 <% end %>

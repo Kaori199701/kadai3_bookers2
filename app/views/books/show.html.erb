@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <!-- ユーザーの詳細? -->
 <h1>User info</h1>
   <%= image_tag @user.get_profile_image(100,100) %>
@@ -15,14 +19,10 @@
 <h1>Book detail</h1>
 
 <div>
-  <%= flash[:notice] %>
-</div>
-
-<div>
   <%= image_tag @book.get_image %>
-  <p>本の名：<%= @book.title %></p>
-  <p>紹介文：<%= @book.body %></p>
-  <p>ユーザーネーム：<%= @book.user.name %></p>
+  <p><%= @book.title %></p>
+  <p><%= @book.body %></p>
+  <p><%= @book.user.name %></p>
 
   <%= link_to "Edit", edit_book_path(@book.id) %>
 

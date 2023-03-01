@@ -1,6 +1,17 @@
 <!--ユーザーインフォ-->
+<h1>User info</h1>
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= @user.name %>
+  <%= @user.introduction %>
+
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+</div>
 
 <!--新規投稿-->
+<%= render 'books/book', book: @book %>
 
 <h1>User</h1>
 

@@ -3,6 +3,8 @@
 </div>
 
 <!-- ユーザーの詳細 -->
+
+<h1>User info</h1>
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
   <%= @user.name %>
@@ -10,6 +12,28 @@
 
   <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <!--または-->
+  <% else %>
+    <p><%= link_to "プロフィール編集", user_path(current_user.id) %></p>
   <% end %>
 </div>
+
+<!-- 新規作成 -->
+<%= render 'books/book', book: @book %>
+
+
+<!--現在のユーザーの投稿一覧-->
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+<table class="table table-striped">
+<div>
+  <%= link_to book_path(book.id) do %>
+    <%= image_tag book.get_image %>
+  <% end %>
+  <p><%= link_to book.title, book_path(book.id) %></p>
+  <p><%= book.body %></p>
+</div>
+</table>
+<% end %>
 

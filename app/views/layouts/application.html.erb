@@ -43,10 +43,21 @@
       <% end %>
 
     <% else %>
-      <%= link_to 'Home', '/' %>
-      <%= link_to 'About', '/home/about' %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Log in", new_user_session_path %>
+      <%= link_to '/', class:"nav-link text-light" do %>
+        <i class="fas fa-home"></i>Home
+      <% end %>
+
+      <%= link_to '/home/about', class:"nav-link text-light" do %>
+        <i class="fas fa-link"></i>About
+      <% end %>
+
+      <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
+        <i class="fas fa-user-plus"></i>Sign up
+      <% end %>
+
+      <%= link_to new_user_session_path, class:"nav-link text-light" do %>
+        <i class="fas fa-sign-in-alt"></i>Log in
+      <% end %>
     <% end %>
       </nl>
     </div>

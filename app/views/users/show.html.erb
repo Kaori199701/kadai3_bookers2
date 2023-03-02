@@ -11,10 +11,13 @@
   <%= @user.introduction %>
 
   <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <!--または-->
+    <%= link_to edit_user_path(@user) do %>
+    　<i class="fas fa-user-cog"></i>
+    <% end %>
   <% else %>
-    <p><%= link_to "プロフィール編集", user_path(current_user.id) %></p>
+    <%= link_to user_path(current_user.id) do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
   <% end %>
 </div>
 

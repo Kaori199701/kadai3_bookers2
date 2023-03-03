@@ -1,5 +1,8 @@
+<main>
+ <div class="container px-5 px-sm-0">
+
 <!--ユーザーインフォ-->
-<h1>User info</h1>
+<h2>User info</h2>
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
   <%= @user.name %>
@@ -15,7 +18,7 @@
 <!--新規投稿-->
 <%= render 'books/book', book: @book %>
 
-<h1>User</h1>
+<h2>Users</h2>
 
 <% @users.each do |user| %>
     <li>
@@ -24,3 +27,6 @@
       <%= link_to 'show', user %>
     </li>
 <% end %>
+
+ </div>
+</main>

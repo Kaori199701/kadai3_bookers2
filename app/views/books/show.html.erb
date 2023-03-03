@@ -1,37 +1,82 @@
-<div>
-  <%= flash[:notice] %>
-</div>
+<main>
 
+ <div>
+   <%= flash[:notice] %>
+ </div>
+
+ <div class="container">
+  <div class="row">
+   <div class="col-md-3">
 <!-- ユーザーの詳細? -->
-<h1>User info</h1>
-  <%= image_tag @book.user.get_profile_image(100,100) %>
-  <%= @book.user.name %>
-  <%= @book.user.introduction %>
+     <h2>User info</h2>
+       <%= image_tag @book.user.get_profile_image(100,100) %>
+      <table class="table">
+       <tbody>
+        <tr>
+         <th>name</th>
+         <th><%= @book.user.name %></th>
+        </tr>
+        <tr>
+         <th>introduction</th>
+         <th><%= @book.user.introduction %></th>
+        </tr>
+       </tbody>
+      </table>
 
-  <% if @user == current_user %>
-    <%= link_to edit_user_path(@user) do %>
-    　<i class="fas fa-user-cog"></i>
-    <% end %>
-  <% end %>
+      <div class="row">
+       <div class="btn btn-outline-secondary btn-block">
+         <% if @user == current_user %>
+           <%= link_to edit_user_path(@user) do %>
+           　<i class="fas fa-user-cog"></i>
+           <% end %>
+         <% end %>
+       </div>
+      </div>
 
 <!-- 新規作成 -->
-<%= render 'books/book', book: @book %>
+     <%= render 'books/book', book: @book %>
 
+   </div>
 
-<h1>Book detail</h1>
+   <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
 
-<div>
-  <%= image_tag @book.get_image %>
-  <p><%= @book.title %></p>
-  <p><%= @book.body %></p>
-  <p><%= @book.user.name %></p>
+    <table class="table">
+     <tbody>
+      <tr>
+       <td>
+         <%= image_tag @book.get_image %>
+         <br>
+         <%= @book.user.name %><!--リンク貼る-->
+       </td>
+       <td>
+         <%= @book.title %><!--リンク貼る-->
+       </td>
+       <td>
+         <%= @book.body %>
+       </td>
 
+      <td>
+        <% if @book.user == current_user %>
+       <div class="btn btn-sm btn-success">
+          <%= link_to "Edit", edit_book_path(@book.id) %>
+       </div>
+        <% end %>
+      </td>
+      <td>
+        <% if @book.user == current_user %>
+       <div class="btn btn-sm btn-danger">
+          <%= link_to "Destroy", book_path(@book), method: :delete %>
+       </div>
+        <% end %>
+      </td>
 
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id) %>
-  <% end %>
+      </tr>
+     </tbody>
+    </table>
 
-  <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
-</div>
+   </div>
+
+  </div>
+ </div>
+</main>

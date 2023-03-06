@@ -1,7 +1,19 @@
+<p></p>
+
 <main>
   <p><%= flash[:notice] %></p>
 
 <div class="container px-5 px-sm-0">
+
+  <% if @book.errors.any? %>
+    <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+    <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
  <div class="row">
 
   <div class="col-md-3">
@@ -31,7 +43,7 @@
       　    <i class="fas fa-user-cog"></i>
          <% end %>
        <% else %>
-         <%= link_to user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+         <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
            <i class="fas fa-user-cog"></i>
          <% end %>
        <% end %>

@@ -5,6 +5,16 @@
  </div>
 
  <div class="container">
+
+  <% if @book.errors.any? %>
+    <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+    <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
   <div class="row">
    <div class="col-md-3">
 <!-- ユーザーの詳細? -->
@@ -29,7 +39,7 @@
            　<i class="fas fa-user-cog"></i>
            <% end %>
          <% else %>
-           <%= link_to user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+           <%= link_to edit_user_path(@book_show.user), class:"btn btn-outline-secondary btn-block" do %>
            　<i class="fas fa-user-cog"></i>
            <% end %>
          <% end %>
@@ -49,9 +59,11 @@
        <td>
         <%= link_to user_path(@book_show.user.id) do %>
          <%= image_tag @book_show.get_image %>
+        <% end %>
          <br>
+        <%= link_to user_path(@book_show.user.id) do %>
          <%= @book_show.user.name %>
-         <% end %>
+        <% end %>
        </td>
        <td>
          <%= link_to @book_show.title, book_path(@book_show.id) %>
